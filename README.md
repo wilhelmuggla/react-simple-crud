@@ -1,5 +1,9 @@
 
-# Simple CRUD React application
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Simple React CRUD application
+View project [here] (https://react-simple-crud.herokuapp.com/).
+
+
+![Preview](preview.png "Preview")
+
 
 
