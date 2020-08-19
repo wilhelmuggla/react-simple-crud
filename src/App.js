@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import NavBar from "./components/nav";
+
+import showMembers from "./components/showMembers";
+import addMember from "./components/addMember";
+import editMember from "./components/editMember";
+
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import {MembersContextProvider } from "./context/membersContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+      <MembersContextProvider>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={showMembers} />
+          <Route exact path="/lagg_till" component={addMember} />
+          <Route exact path="/andra_medlem/:id" component={editMember} />
+        </Switch>
+        </MembersContextProvider>
+      </BrowserRouter>
     </div>
   );
 }
