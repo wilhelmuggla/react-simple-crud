@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { MembersContext } from "../context/membersContext";
-import {useParams } from "react-router-dom";
+import {useParams, useHistory} from "react-router-dom";
 
 export default () => {
   const { id } = useParams();
@@ -10,6 +10,7 @@ export default () => {
   const [email, setEmail] = useState(membersList[id].email);
   const [phone, setPhone] = useState(membersList[id].phone)
   const [error, setError] = useState(false);
+  const history = useHistory();
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -17,12 +18,13 @@ export default () => {
     if (name === "" || phone === "" || email === "") {
       setError(true);
     } else {
-      const newMember = {
+      const editedMember = {
         name: name,
         email: email,
         phone: phone,
       };
-      editMember(newMember, id);
+      editMember(editedMember, id);
+      history.push('/');
     }
   };
 
