@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { MembersContext } from "../context/membersContext";
-import { useHistory, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 
 export default () => {
   const { id } = useParams();
@@ -10,7 +10,6 @@ export default () => {
   const [email, setEmail] = useState(membersList[id].email);
   const [phone, setPhone] = useState(membersList[id].phone)
   const [error, setError] = useState(false);
-  const history = useHistory();
 
   const onSubmit = (e) => {
     e.preventDefault();

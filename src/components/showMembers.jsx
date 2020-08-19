@@ -1,4 +1,4 @@
-import React, { context, useContext } from "react";
+import React, {useContext } from "react";
 import { MembersContext } from "../context/membersContext";
 import {Link} from "react-router-dom";
 
